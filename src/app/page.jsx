@@ -15,12 +15,12 @@ const Home = () => {
     totalItems: categories.length,
   });
 
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(
-          "https://fakestoreapi.com/products/categories"
-        );
+        const response = await axios.get(`${apiBaseUrl}/products/categories`);
         setCategories(
           response.data.map((name, index) => ({ id: index + 1, name }))
         );

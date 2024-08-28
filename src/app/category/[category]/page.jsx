@@ -15,11 +15,13 @@ const CategoryPage = ({ params }) => {
     totalItems: products.length,
   });
 
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `https://fakestoreapi.com/products/category/${decodedCategory}`
+          `${apiBaseUrl}/products/category/${decodedCategory}`
         );
         setProducts(response.data);
       } catch (error) {
