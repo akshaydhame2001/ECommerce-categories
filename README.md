@@ -25,3 +25,4 @@
 - Pagination
 - Sidebar
 - API integration
+- Loader

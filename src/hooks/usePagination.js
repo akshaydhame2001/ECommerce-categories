@@ -1,11 +1,15 @@
-"use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const usePagination = ({ perPage, totalItems }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(totalItems / perPage);
+  const totalPages = Math.max(Math.ceil(totalItems / perPage), 1);
+
+  useEffect(() => {
+    if (totalItems === 0) {
+      setCurrentPage(1);
+    }
+  }, [totalItems]);
 
   const goToPage = (page) => {
     if (page >= 1 && page <= totalPages) {

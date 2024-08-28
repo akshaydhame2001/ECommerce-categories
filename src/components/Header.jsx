@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaBars, FaTimes } from "react-icons/fa"; // Icons for menu and close
+import { FaBars, FaTimes } from "react-icons/fa";
+import capitalizeEachWord from "@/utils/capitalize";
 
 const Header = ({ categories }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -19,7 +20,7 @@ const Header = ({ categories }) => {
           {categories.map((category, index) => (
             <Link key={index} href={`/category/${category}`}>
               <span className="text-light-black hover:text-dark-black transition">
-                {category}
+                {capitalizeEachWord(category)}
               </span>
             </Link>
           ))}

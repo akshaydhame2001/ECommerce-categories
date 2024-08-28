@@ -3,6 +3,7 @@
 import categoryImages from "@/utils/categoryImages";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import capitalizeEachWord from "@/utils/capitalize";
 
 const CategoryCard = ({ title }) => {
   const router = useRouter();
@@ -25,7 +26,9 @@ const CategoryCard = ({ title }) => {
         className="w-full h-40 object-cover rounded-md mb-2"
         priority
       />
-      <h3 className="text-lg font-semibold text-dark-black">{title}</h3>
+      <h3 className="text-lg font-semibold text-dark-black">
+        {capitalizeEachWord(title)}
+      </h3>
     </div>
   );
 };

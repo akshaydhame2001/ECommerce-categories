@@ -29,7 +29,7 @@ const CategoryPage = ({ params }) => {
       }
     };
     fetchProducts();
-  }, [decodedCategory]);
+  }, [decodedCategory, apiBaseUrl]);
 
   const paginatedProducts = getCurrentItems(products);
 

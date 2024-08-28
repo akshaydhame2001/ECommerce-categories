@@ -1,14 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { FaStar } from "react-icons/fa"; // Import the star icon from react-icons
 
 const ProductCard = ({ product }) => {
   return (
     <div className="p-4 bg-white shadow-md rounded-md hover:shadow-lg transition-shadow duration-300">
-      <img
+      <Image
         src={product.image}
         alt={product.title}
         className="h-40 w-full object-cover rounded-md"
+        width={300}
+        height={300}
       />
       <div className="mt-2">
         <h3 className="text-lg font-semibold text-dark-black">
